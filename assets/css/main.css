@@ -1,12 +1,4 @@
 /* ===================================================================
- * Główne style dla portfolio Konrada Pieczyńskiego
- * ------------------------------------------------------------------- */
-
-/* Import stylów bazowych */
-@import url('base.css');
-@import url('responsive.css');
-
-/* ===================================================================
  * Zmienne CSS
  * ------------------------------------------------------------------- */
 :root {
@@ -66,7 +58,7 @@ img {
 }
 
 section {
-    padding: 8rem 0;
+    padding: 1.5rem 0;
     position: relative;
 }
 
@@ -338,7 +330,7 @@ section {
  * Intro/Hero
  * ------------------------------------------------------------------- */
 .s-intro {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../images/hero-bg.jpg');
+    background-image: linear-gradient(rgba(0, 10, 30, 0.7), rgba(0, 0, 0, 0.7)), url('../images/pexels-arthousestudio-4631155.jpg');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -662,6 +654,9 @@ section {
     color: white;
     padding: 5rem 0;
     text-align: center;
+    background-image: linear-gradient(rgba(0, 10, 30, 0.7), rgba(0, 0, 0, 0.7)), url('../images/pexels-arthousestudio-4631155.jpg');
+    background-size: cover;
+    background-position: center;
 }
 
 /* Centrowanie ikon mediów społecznościowych */
@@ -1063,5 +1058,3 @@ section {
     opacity: 1;
     transform: translateY(0);
 }
-
-/* Dodaj JS do wykrywania pojawienia się elementów podczas przewijania */
