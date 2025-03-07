@@ -681,6 +681,31 @@ section {
 }
 
 /* ===================================================================
+ * Edukacja
+ * ------------------------------------------------------------------- */
+.s-education {
+    background-color: var(--color-bg);
+    text-align: center;
+}
+
+.s-education h2 {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 4rem;
+}
+
+.s-education h2:after {
+    content: "";
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background: var(--color-primary);
+}
+
+/* ===================================================================
  * Projekty
  * ------------------------------------------------------------------- */
 .s-projects {
@@ -809,6 +834,67 @@ section {
   font-size: 2rem;
   margin-bottom: 10px;
   text-align: center; /* Przywracamy wyrównanie do lewej */
+}
+
+/* ===================================================================
+ * Kursy
+ * ------------------------------------------------------------------- */
+.s-courses {
+    background-color: var(--color-bg-alt);
+    text-align: center;
+}
+
+.s-courses h2 {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 4rem;
+}
+
+.s-courses h2:after {
+    content: "";
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background: var(--color-primary);
+}
+
+.courses-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.course-card {
+    background-color: var(--color-bg);
+    border-left: 3px solid var(--color-primary);
+    border-radius: 5px;
+    padding: 20px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    text-align: left;
+}
+
+.course-card h3 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+    color: var(--color-primary);
+}
+
+.course-date {
+    font-size: 0.9em;
+    color: var(--color-text-light);
+    margin-bottom: 10px;
+    font-style: italic;
+}
+
+@media screen and (max-width: 768px) {
+    .courses-grid {
+        grid-template-columns: 1fr;
+    }
 }
 
 /* ===================================================================

@@ -26,6 +26,8 @@ document.addEventListener('DOMContentLoaded', function() {
     loadContent('about', 'sections/about.html');
     loadContent('skills', 'sections/skills.html');
     loadContent('experience', 'sections/experience.html');
+    loadContent('education', 'sections/education.html');
+    loadContent('courses', 'sections/courses.html');
     loadContent('projects', 'sections/projects.html');
     loadContent('contact', 'sections/contact.html');
 });
@@ -153,6 +155,7 @@ window.addEventListener('load', () => {
         loadContent('about', 'sections/about.html');
         loadContent('skills', 'sections/skills.html');
         loadContent('experience', 'sections/experience.html');
+        loadContent('education', 'sections/education.html');
         loadContent('projects', 'sections/projects.html');
         loadContent('contact', 'sections/contact.html');
     });
