@@ -158,6 +158,9 @@ window.addEventListener('load', () => {
         loadContent('education', 'sections/education.html');
         loadContent('projects', 'sections/projects.html');
         loadContent('contact', 'sections/contact.html');
+
+        // Dodaj obsługę zgody na cookies
+        setupCookieConsent();
     });
 
     function setupMenu() {
@@ -264,3 +267,64 @@ window.addEventListener('load', () => {
         // Daj trochę czasu na załadowanie wszystkich sekcji
         setTimeout(initHighlighting, 500);
     });
+
+// GDPR Cookie Consent
+function setupCookieConsent() {
+    const cookieNotice = document.getElementById('cookie-notice');
+    const acceptAllBtn = document.getElementById('cookie-accept-all');
+    const acceptNecessaryBtn = document.getElementById('cookie-accept-necessary');
+    const settingsBtn = document.getElementById('cookie-settings');
+    
+    // Sprawdź, czy użytkownik już dokonał wyboru
+    const cookieConsent = localStorage.getItem('cookieConsent');
+    
+    if (!cookieConsent) {
+        // Jeśli nie ma zapisanej zgody, pokaż baner
+        setTimeout(() => {
+            cookieNotice.classList.add('show');
+        }, 1500);
+    } else {
+        // Jeśli zgoda jest już zapisana, zastosuj odpowiednie ustawienia
+        if (cookieConsent === 'all') {
+            enableAllCookies();
+        } else if (cookieConsent === 'necessary') {
+            enableNecessaryCookies();
+        }
+    }
+    
+    // Obsługa kliknięcia "Akceptuj wszystkie"
+    if (acceptAllBtn) {
+        acceptAllBtn.addEventListener('click', () => {
+            localStorage.setItem('cookieConsent', 'all');
+            cookieNotice.classList.remove('show');
+            enableAllCookies();
+        });
+    }
+    
+    // Obsługa kliknięcia "Tylko niezbędne"
+    if (acceptNecessaryBtn) {
+        acceptNecessaryBtn.addEventListener('click', () => {
+            localStorage.setItem('cookieConsent', 'necessary');
+            cookieNotice.classList.remove('show');
+            enableNecessaryCookies();
+        });
+    }
+    
+    // Obsługa kliknięcia "Ustawienia"
+    if (settingsBtn) {
+        settingsBtn.addEventListener('click', () => {
+            // W przyszłości tutaj można dodać otwieranie modalu z ustawieniami
+            localStorage.setItem('cookieConsent', 'necessary');
+            cookieNotice.classList.remove('show');
+            enableNecessaryCookies();
+        });
+    }
+    
+    // Funkcje włączające odpowiednie cookies
+    function enableAllCookies() {
+        
+    }
+    
+    function enableNecessaryCookies() {
+    }
+}
