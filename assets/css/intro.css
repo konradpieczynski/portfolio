@@ -1,0 +1,50 @@
+/* ===================================================================
+ * Intro/Hero
+ * ------------------------------------------------------------------- */
+.s-intro {
+    background-image: linear-gradient(rgba(0, 10, 30, 0.7), rgba(0, 0, 0, 0.7)), url('../images/pexels-arthousestudio-4631155.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    padding: 0;
+}
+
+.s-intro__content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.s-intro__title {
+    font-size: 5rem;
+    margin-bottom: 1rem;
+    color: white;
+}
+
+.s-intro__subtitle {
+    font-size: 2.4rem;
+    margin-bottom: 3rem;
+    color: rgba(255, 255, 255, 0.8);
+    font-weight: 400;
+}
+
+.s-intro__buttons {
+    margin-top: 3rem;
+}
+
+.s-intro__buttons .btn {
+    margin: 0 1rem;
+    border-color: white;
+    color: white;
+}
+
+.s-intro__buttons .btn:hover {
+    background: white;
+    color: var(--color-primary);
+}

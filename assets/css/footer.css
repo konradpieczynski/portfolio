@@ -1,0 +1,85 @@
+/* ===================================================================
+ * Stopka
+ * ------------------------------------------------------------------- */
+.s-footer {
+    background-color: var(--color-accent);
+    color: white;
+    padding: 5rem 0;
+    text-align: center;
+    background-image: linear-gradient(rgba(0, 10, 30, 0.7), rgba(0, 0, 0, 0.7)), url('../images/pexels-arthousestudio-4631155.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+/* Centrowanie ikon mediów społecznościowych */
+.s-footer__social {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    margin: 0 auto 3rem;
+    padding: 0;
+}
+
+.s-footer__social li {
+    margin: 0 1.5rem;
+}
+
+.s-footer__social a {
+    color: white;
+    font-size: 2.5rem;
+    transition: var(--transition);
+}
+
+.s-footer__social a:hover {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* Stylizacja przycisku pobierania CV */
+.s-footer__download {
+    margin-bottom: 3rem;
+}
+
+.s-footer__download .btn {
+    font-size: 1.6rem;
+    padding: 1.2rem 2.4rem;
+}
+
+/* Stylizacja copyright */
+.ss-copyright {
+    display: block;
+    text-align: center;
+    font-size: 1.4rem;
+    margin-bottom: 1.5rem;
+}
+
+.ss-go-top {
+    position: fixed;
+    bottom: 3rem;
+    right: 3rem;
+    z-index: 10;
+    opacity: 0;
+    visibility: hidden;
+    transition: var(--transition);
+}
+
+.ss-go-top.link-is-visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.ss-go-top a {
+    display: block;
+    background: var(--color-primary);
+    color: white;
+    width: 4.5rem;
+    height: 4.5rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition);
+}
+
+.ss-go-top a:hover {
+    background: var(--color-secondary);
+}

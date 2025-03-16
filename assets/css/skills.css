@@ -1,0 +1,30 @@
+/* ===================================================================
+ * Umiejętności
+ * ------------------------------------------------------------------- */
+.s-skills {
+    background-color: var(--color-bg-alt);
+    text-align: center;
+}
+
+.s-skills ul {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: left;
+    list-style: none;
+}
+
+.s-skills li {
+    margin-bottom: 2rem;
+    position: relative;
+    padding-left: 2.5rem;
+}
+
+.s-skills li:before {
+    content: "\f00c";
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: var(--color-primary);
+}

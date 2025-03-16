@@ -1,0 +1,111 @@
+/* ===================================================================
+ * Projekty
+ * ------------------------------------------------------------------- */
+.s-projects {
+    background-color: var(--color-bg-alt);
+    text-align: center;
+}
+
+.project {
+    max-width: 800px;
+    margin: 0 auto 5rem;
+    text-align: left;
+    background: var(--color-bg);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.project:last-child {
+    margin-bottom: 0;
+}
+
+.project h3 {
+    padding: 2rem 2rem 0;
+}
+
+.project p {
+    padding: 0 2rem;
+    margin-bottom: 1rem;
+}
+
+.project a {
+    display: inline-block;
+    margin: 0 2rem 1rem;
+    font-weight: 600;
+}
+
+.project img {
+    width: 100%;
+    height: auto;
+    margin-top: 2rem;
+}
+
+/* Dodatkowe style dla projektów */
+#projects h3 {
+    text-align: center;
+    margin: 50px 0 30px;
+    color: var(--color-accent);
+}
+
+#projects .timeline-icon i.fa-car,
+#projects .timeline-icon i.fa-code {
+    font-size: 22px;
+}
+
+.project-role {
+    color: var(--color-text-light);
+    margin-bottom: 15px;
+    font-style: italic;
+}
+
+.project-links {
+    margin: 20px 0;
+}
+
+.project-links .btn {
+    font-size: 1.4rem;
+    padding: 8px 15px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.project-links .btn i {
+    margin-right: 8px;
+}
+
+.project-image {
+    width: 100%;
+    border-radius: 5px;
+    margin-top: 15px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Poprawka dla nagłówków w timeline-content */
+.timeline-content h3 {
+    margin-bottom: 10px;
+}
+
+/* Poprawka dla odstępów między projektami */
+#projects .experience-item {
+    margin-bottom: 40px;
+}
+
+/* Style dla nagłówków kategorii */
+#projects h3.category-header {
+    text-align: center;
+    margin: 50px 0 30px;
+    color: var(--color-accent);
+}
+
+/* Style dla nagłówków projektów */
+#projects .timeline-content h3 {
+    color: var(--color-primary);
+    font-size: 2rem;
+    margin-bottom: 10px;
+    text-align: center; /* Przywracamy wyrównanie do lewej */
+}
+

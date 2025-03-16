@@ -1,0 +1,100 @@
+/* ===================================================================
+ * Animacje i efekty
+ * ------------------------------------------------------------------- */
+.fade-in {
+    opacity: 0;
+    animation: fadeIn 1s forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.slide-up {
+    opacity: 0;
+    transform: translateY(60px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.slide-up.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Style dla strony polityki prywatności */
+.privacy-policy {
+    max-width: 900px;
+    margin: 10rem auto 5rem;
+    padding: 0 2rem;
+}
+
+.privacy-policy h1 {
+    margin-bottom: 3rem;
+    text-align: center;
+}
+
+.privacy-policy section {
+    margin-bottom: 3rem;
+}
+
+.privacy-policy h2 {
+    margin-bottom: 1.5rem;
+    color: var(--color-primary);
+}
+
+.privacy-policy ul {
+    margin-left: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+.privacy-policy li {
+    margin-bottom: 0.5rem;
+}
+
+.privacy-policy code {
+    background-color: var(--color-bg-alt);
+    padding: 0.2rem 0.5rem;
+    border-radius: 3px;
+    font-family: monospace;
+}
+
+/* Poprawki dla menu językowego na urządzeniach mobilnych */
+@media screen and (max-width: 768px) {
+    .language-dropdown {
+        text-align: center;
+        width: 100%;
+        margin-top: 1rem;
+    }
+    
+    #language-selector {
+        justify-content: center;
+        margin: 0 auto;
+    }
+    
+    .language-menu {
+        position: relative !important;
+        top: auto !important;
+        right: auto !important;
+        left: auto !important;
+        width: 100% !important;
+        background-color: transparent !important;
+        box-shadow: none !important;
+        display: none;
+        padding: 0.5rem 0 !important;
+        margin: 0 auto;
+        max-width: 220px;
+    }
+    
+    .language-menu li a {
+        justify-content: center !important;
+        padding: 8px !important;
+        margin: 4px 0;
+        border-radius: 4px;
+        background-color: rgba(255, 255, 255, 0.1);
+    }
+    
+    .language-dropdown.is-open .language-menu {
+        display: block;
+    }
+}
