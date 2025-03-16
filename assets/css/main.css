@@ -1,4 +1,16 @@
 /* ===================================================================
+ * SPIS TREŚCI:
+ * 1. Zmienne i podstawowe style
+ * 2. Preloader
+ * 3. Nagłówek i nawigacja
+ * 4. Sekcje strony (Intro, O mnie, Umiejętności, itd.)
+ * 5. Stopka
+ * 6. GDPR Cookie Notice
+ * 7. Media Queries i responsywność
+ * 8. Animacje i efekty
+ * ------------------------------------------------------------------- */
+
+/* ===================================================================
  * Zmienne CSS
  * ------------------------------------------------------------------- */
 :root {
@@ -93,6 +105,24 @@ section {
 
 .btn--download:hover {
     background: var(--color-secondary);
+}
+
+/* Wspólne style dla nagłówków sekcji */
+.section-heading {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 4rem;
+}
+
+.section-heading:after {
+    content: "";
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background: var(--color-primary);
 }
 
 /* ===================================================================
@@ -376,6 +406,8 @@ section {
     text-decoration: none;
     display: block;
     text-align: left;
+    white-space: nowrap;
+    word-break: keep-all;
 }
 
 .language-dropdown .language-menu li a:hover {
@@ -464,23 +496,6 @@ section {
     text-align: center;
 }
 
-.s-about h2 {
-    position: relative;
-    display: inline-block;
-    margin-bottom: 4rem;
-}
-
-.s-about h2:after {
-    content: "";
-    position: absolute;
-    bottom: -15px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 80px;
-    height: 3px;
-    background: var(--color-primary);
-}
-
 .about-content {
     max-width: 800px;
     margin: 0 auto;
@@ -539,23 +554,6 @@ section {
     text-align: center;
 }
 
-.s-skills h2 {
-    position: relative;
-    display: inline-block;
-    margin-bottom: 4rem;
-}
-
-.s-skills h2:after {
-    content: "";
-    position: absolute;
-    bottom: -15px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 80px;
-    height: 3px;
-    background: var(--color-primary);
-}
-
 .s-skills ul {
     max-width: 800px;
     margin: 0 auto;
@@ -585,23 +583,6 @@ section {
 .s-experience {
     background-color: var(--color-bg);
     text-align: center;
-}
-
-.s-experience h2 {
-    position: relative;
-    display: inline-block;
-    margin-bottom: 4rem;
-}
-
-.s-experience h2:after {
-    content: "";
-    position: absolute;
-    bottom: -15px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 80px;
-    height: 3px;
-    background: var(--color-primary);
 }
 
 /* Style dla osi czasu (timeline) */
@@ -767,46 +748,12 @@ section {
     text-align: center;
 }
 
-.s-education h2 {
-    position: relative;
-    display: inline-block;
-    margin-bottom: 4rem;
-}
-
-.s-education h2:after {
-    content: "";
-    position: absolute;
-    bottom: -15px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 80px;
-    height: 3px;
-    background: var(--color-primary);
-}
-
 /* ===================================================================
  * Projekty
  * ------------------------------------------------------------------- */
 .s-projects {
     background-color: var(--color-bg-alt);
     text-align: center;
-}
-
-.s-projects h2 {
-    position: relative;
-    display: inline-block;
-    margin-bottom: 4rem;
-}
-
-.s-projects h2:after {
-    content: "";
-    position: absolute;
-    bottom: -15px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 80px;
-    height: 3px;
-    background: var(--color-primary);
 }
 
 .project {
@@ -923,23 +870,6 @@ section {
     text-align: center;
 }
 
-.s-courses h2 {
-    position: relative;
-    display: inline-block;
-    margin-bottom: 4rem;
-}
-
-.s-courses h2:after {
-    content: "";
-    position: absolute;
-    bottom: -15px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 80px;
-    height: 3px;
-    background: var(--color-primary);
-}
-
 .courses-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -982,23 +912,6 @@ section {
 .s-contact {
     background-color: var(--color-bg);
     text-align: center;
-}
-
-.s-contact h2 {
-    position: relative;
-    display: inline-block;
-    margin-bottom: 4rem;
-}
-
-.s-contact h2:after {
-    content: "";
-    position: absolute;
-    bottom: -15px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 80px;
-    height: 3px;
-    background: var(--color-primary);
 }
 
 .contact-content {
@@ -1261,61 +1174,61 @@ section {
     /* Style dla całego menu mobilnego */
     .header-nav.menu-is-open {
         display: block;
-        position: fixed !important;
-        top: 0 !important;
-        left: 0 !important;
-        width: 100% !important;
-        height: 100vh !important; /* pełna wysokość viewportu */
-        z-index: 1500 !important;
-        background: var(--color-bg) !important;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        z-index: 1500;
+        background: var(--color-bg);
         overflow-y: auto;
         transform: translateX(0);
     }
     
     /* Style dla przycisku zamknięcia */
     .header-nav.menu-is-open .header-nav__close {
-        display: flex !important; /* używamy flexbox do centrowania */
-        align-items: center !important;
-        justify-content: center !important;
-        position: fixed !important;
-        top: 20px !important;
-        right: 20px !important;
-        z-index: 2000 !important;
-        background: rgba(0, 0, 0, 0.5) !important;
-        width: 40px !important;
-        height: 40px !important;
-        border-radius: 50% !important;
-        cursor: pointer !important;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        z-index: 2000;
+        background: rgba(0, 0, 0, 0.5);
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        cursor: pointer;
     }
     
     /* Poprawiamy pozycjonowanie kresek tworzących X */
     .header-nav.menu-is-open .header-nav__close::before,
     .header-nav.menu-is-open .header-nav__close::after {
-        content: '' !important;
-        position: absolute !important;
-        width: 20px !important;
-        height: 2px !important;
-        background-color: white !important;
-        top: 50% !important;
-        left: 50% !important;
+        content: '';
+        position: absolute;
+        width: 20px;
+        height: 2px;
+        background-color: white;
+        top: 50%;
+        left: 50%;
     }
     
     .header-nav.menu-is-open .header-nav__close::before {
-        transform: translate(-50%, -50%) rotate(45deg) !important;
+        transform: translate(-50%, -50%) rotate(45deg);
     }
     
     .header-nav.menu-is-open .header-nav__close::after {
-        transform: translate(-50%, -50%) rotate(-45deg) !important;
+        transform: translate(-50%, -50%) rotate(-45deg);
     }
     
     /* Ukrywamy tekst w przycisku zamknięcia */
     .header-nav.menu-is-open .header-nav__close span {
-        display: none !important;
+        display: none;
     }
     
     /* Blokujemy przewijanie strony gdy menu jest otwarte */
     body.menu-is-open {
-        overflow: hidden !important;
+        overflow: hidden;
     }
     
     .header-nav__content {
@@ -1358,12 +1271,13 @@ section {
     
     .header-menu-toggle {
         display: block;
-        position: absolute;
+        position: fixed;
         top: 2rem;
         right: 2rem;
         width: 4rem;
         height: 3rem;
         cursor: pointer;
+        z-index: 1100;
     }
     
     .header-menu-toggle span {
