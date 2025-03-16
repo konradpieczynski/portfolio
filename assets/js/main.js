@@ -21,17 +21,6 @@ function extractBodyContent(html) {
     return body ? body.innerHTML : html;
 }
 
-document.addEventListener('DOMContentLoaded', function() {
-    loadContent('header-section', 'sections/header.html');
-    loadContent('about', 'sections/about.html');
-    loadContent('skills', 'sections/skills.html');
-    loadContent('experience', 'sections/experience.html');
-    loadContent('education', 'sections/education.html');
-    loadContent('courses', 'sections/courses.html');
-    loadContent('projects', 'sections/projects.html');
-    loadContent('contact', 'sections/contact.html');
-});
-
 // Animacja elementów przy przewijaniu
 function animateOnScroll() {
     const elements = document.querySelectorAll('.slide-up');
@@ -145,10 +134,15 @@ window.addEventListener('load', () => {
         return body ? body.innerHTML : html;
     }
 
-    // Ładowanie wszystkich sekcji po załadowaniu strony
-    document.addEventListener('DOMContentLoaded', function() {
+    // Call updateContent() on page load
+    window.addEventListener('DOMContentLoaded', async () => {
+    const userPreferredLanguage = localStorage.getItem('language') || 'en';
+    const langData = await fetchLanguageData(userPreferredLanguage);
+    updateContent(langData);
+    });
+
+    document.addEventListener('DOMContentLoaded', function() {    
         loadContent('header-section', 'sections/header.html').then(() => {
-            // Uruchom setupMenu dopiero po załadowaniu nagłówka
             setupMenu();
         });
         
@@ -156,6 +150,7 @@ window.addEventListener('load', () => {
         loadContent('skills', 'sections/skills.html');
         loadContent('experience', 'sections/experience.html');
         loadContent('education', 'sections/education.html');
+        loadContent('courses', 'sections/courses.html');
         loadContent('projects', 'sections/projects.html');
         loadContent('contact', 'sections/contact.html');
 
@@ -328,3 +323,81 @@ function setupCookieConsent() {
     function enableNecessaryCookies() {
     }
 }
+
+// Function to update content based on selected language
+function updateContent(langData) {
+    // Aktualizacja tekstu w elementach
+    document.querySelectorAll('[data-i18n]').forEach(element => {
+        const key = element.getAttribute('data-i18n');
+        if (langData[key]) {
+            element.innerHTML = langData[key];
+        }
+    });
+    
+    // Aktualizacja atrybutów alt dla obrazów
+    document.querySelectorAll('[data-i18n-alt]').forEach(element => {
+        const key = element.getAttribute('data-i18n-alt');
+        if (langData[key]) {
+            element.setAttribute('alt', langData[key]);
+        }
+    });
+    
+    // Aktualizacja atrybutów title
+    document.querySelectorAll('[data-i18n-title]').forEach(element => {
+        const key = element.getAttribute('data-i18n-title');
+        if (langData[key]) {
+            element.setAttribute('title', langData[key]);
+        }
+    });
+
+    // Aktualizacja linku do CV
+    const cvLink = document.getElementById('cv-download-link');
+    if (cvLink && langData['CVPath']) {
+        cvLink.setAttribute('href', langData['CVPath']);
+    }
+}
+
+// Function to set the language preference
+function setLanguagePreference(lang) {
+    localStorage.setItem('language', lang);
+    location.reload();
+}
+
+// Function to fetch language data
+async function fetchLanguageData(lang) {
+    try {
+        const response = await fetch(`languages/${lang}.json`);
+        if (!response.ok) {
+            console.error(`Failed to load language file: ${lang}.json`);
+            // Fallback to English if requested language is not available
+            if (lang !== 'en') {
+                return fetchLanguageData('en');
+            }
+            return {};
+        }
+        return response.json();
+    } catch (error) {
+        console.error(`Error fetching language data:`, error);
+        return {};
+    }
+}
+
+// Function to change language
+function changeLanguage(lang) {
+    setLanguagePreference(lang);
+    // Przeładowanie strony nastąpi w setLanguagePreference()
+}
+
+// Call updateContent() on page load
+window.addEventListener('DOMContentLoaded', async () => {
+    const userPreferredLanguage = localStorage.getItem('language') || 'en';
+    const langData = await fetchLanguageData(userPreferredLanguage);
+    updateContent(langData);
+    
+    // Aktualizacja flagi języka przy ładowaniu strony
+    const currentFlag = document.getElementById('current-language-flag');
+    if (currentFlag) {
+        currentFlag.src = `assets/images/flags/${userPreferredLanguage}.png`;
+        currentFlag.alt = userPreferredLanguage === 'en' ? 'English' : 'Polski';
+    }
+});

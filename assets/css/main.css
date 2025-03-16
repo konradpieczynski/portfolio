@@ -148,7 +148,7 @@ section {
     width: 100%;
     background-color: rgba(255, 255, 255, 0.95);
     z-index: 100;
-    padding: 1.5rem 0;
+    padding: 1.5rem 40px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     transition: var(--transition);
 }
@@ -326,6 +326,85 @@ section {
     transform: rotate(-45deg);
 }
 
+/* Dodaj style dla przełącznika języka w nagłówku */
+.language-switcher {
+    display: flex;
+    gap: 10px;
+}
+
+.language-switcher img {
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    background-color: #7f7f7f;
+    padding: 4px;
+    width: 30px;
+    height: auto;
+}
+
+/* Dropdown menu dla wyboru języka */
+.language-dropdown {
+    position: relative;
+}
+
+.language-dropdown .language-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0; /* Zmieniono z left: 0 na right: 0 */
+    background-color: #ffffff;
+    min-width: 140px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1000;
+    padding: 0;
+    border-radius: 4px;
+}
+
+.language-dropdown:hover .language-menu,
+.language-dropdown:focus-within .language-menu {
+    display: block;
+}
+
+.language-dropdown .language-menu li {
+    margin: 0;
+    padding: 0;
+    display: block;
+}
+
+.language-dropdown .language-menu li a {
+    color: var(--color-text);
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+.language-dropdown .language-menu li a:hover {
+    background-color: var(--color-primary);
+    color: #ffffff;
+}
+
+/* Style dla flag w dropdownie języków */
+.language-flag {
+    width: 20px;
+    height: 15px;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 5px;
+    border: 2px solid rgba(0,0,0,0.1);
+}
+
+#language-selector {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.language-dropdown .language-menu li a {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
 /* ===================================================================
  * Intro/Hero
  * ------------------------------------------------------------------- */
@@ -344,7 +423,7 @@ section {
 }
 
 .s-intro__content {
-    max-width: 800px;
+    max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
 }
@@ -1373,6 +1452,15 @@ section {
     
     .ss-copyright span {
         margin-bottom: 1.5rem;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .language-switcher {
+        position: static;
+        margin: 0 auto;
+        display: flex;
+        justify-content: center;
     }
 }
 

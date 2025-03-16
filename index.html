@@ -46,10 +46,10 @@
                 <div class="column">
                     <div class="s-intro__content">
                         <h1 class="s-intro__title">Konrad Pieczyński</h1>
-                        <h3 class="s-intro__subtitle">Software Engineer & Automation Specialist</h3>
+                        <h3 class="s-intro__subtitle" data-i18n="HeroSubtitle">Software Engineer & Automation Specialist</h3>
                         <div class="s-intro__buttons">
-                            <a href="#about" class="smoothscroll btn btn--stroke">About Me</a>
-                            <a href="#contact" class="smoothscroll btn btn--stroke">Contact Me</a>
+                            <a href="#about" class="smoothscroll btn btn--stroke" data-i18n="AboutMeButton">About Me</a>
+                            <a href="#contact" class="smoothscroll btn btn--stroke" data-i18n="ContactMeButton">Contact Me</a>
                         </div>
                     </div>
                 </div>
@@ -105,14 +105,14 @@
                 
                 <!-- Przycisk pobierania CV -->
                 <div class="s-footer__download">
-                    <a href="downloads/Konrad_Pieczynski_CV_EN.pdf" download class="btn btn--download">
-                        Download CV <i class="fa fa-download" aria-hidden="true"></i>
+                    <a id="cv-download-link" href="downloads/Konrad_Pieczynski_CV_EN.pdf" download class="btn btn--download">
+                        <span data-i18n="DownloadCV">Download CV</span> <i class="fa fa-download" aria-hidden="true"></i>
                     </a>
                 </div>
                 
                 <!-- Copyright -->
                 <div class="ss-copyright">
-                    <span>&copy; 2025 Konrad Pieczyński. All rights reserved.</span>
+                    <span data-i18n="Copyright">&copy; 2025 Konrad Pieczyński. All rights reserved.</span>
                 </div>
             </div>
         </div>
@@ -127,14 +127,14 @@
     <!-- GDPR Cookie Notice -->
     <div id="cookie-notice" class="cookie-notice">
         <div class="cookie-content">
-            <p>
-                This website uses cookies. By continuing to use the site, you agree to their use. 
-                <a href="privacy-policy.html" class="cookie-link">Privacy Policy</a>
+            <p data-i18n="CookieNotice">
+                This website uses cookies. By continuing to use the site, you agree to their use.
             </p>
+            <a href="privacy-policy.html" class="cookie-link" data-i18n="PrivacyPolicy">Privacy Policy</a>
             <div class="cookie-buttons">
-                <button id="cookie-accept-all" class="btn btn--small">Accept All</button>
-                <button id="cookie-accept-necessary" class="btn btn--small btn--stroke">Necessary Only</button>
-                <button id="cookie-settings" class="btn btn--small btn--stroke">Settings</button>
+                <button id="cookie-accept-all" class="btn btn--small" data-i18n="AcceptAll">Accept All</button>
+                <button id="cookie-accept-necessary" class="btn btn--small btn--stroke" data-i18n="NecessaryOnly">Necessary Only</button>
+                <button id="cookie-settings" class="btn btn--small btn--stroke" data-i18n="Settings">Settings</button>
             </div>
         </div>
     </div>

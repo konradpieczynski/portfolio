@@ -6,18 +6,32 @@
 
 <nav class="header-nav">
     <a href="#0" class="header-nav__close" title="Close" style="z-index: 1000;">
-        <span>Close</span>
+        <span data-i18n="Close">Close</span>
     </a>
     <div class="header-nav__content">
         <ul class="header-nav__list">
-            <li class="current"><a class="smoothscroll" href="#hero">Home</a></li>
-            <li><a class="smoothscroll" href="#about">About</a></li>
-            <li><a class="smoothscroll" href="#skills">Skills</a></li>
-            <li><a class="smoothscroll" href="#experience">Experience</a></li>
-            <li><a class="smoothscroll" href="#education">Education</a></li>
-            <li><a class="smoothscroll" href="#courses">Courses</a></li>
-            <li><a class="smoothscroll" href="#projects">Projects</a></li>
-            <li><a class="smoothscroll" href="#contact">Contact</a></li>
+            <li class="current"><a class="smoothscroll" href="#hero" data-i18n="Home">Home</a></li>
+            <li><a class="smoothscroll" href="#about" data-i18n="About">About</a></li>
+            <li><a class="smoothscroll" href="#skills" data-i18n="Skills">Skills</a></li>
+            <li><a class="smoothscroll" href="#experience" data-i18n="Experience">Experience</a></li>
+            <li><a class="smoothscroll" href="#education" data-i18n="Education">Education</a></li>
+            <li><a class="smoothscroll" href="#courses" data-i18n="Courses">Courses</a></li>
+            <li><a class="smoothscroll" href="#projects" data-i18n="Projects">Projects</a></li>
+            <li><a class="smoothscroll" href="#contact" data-i18n="Contact">Contact</a></li>
+            <li class="language-dropdown">
+                <a href="#" id="language-selector">
+                    <img id="current-language-flag" src="assets/images/flags/en.png" alt="Language flag" class="language-flag">
+                    <span data-i18n="Language">Language</span>
+                </a>
+                <ul class="language-menu">
+                    <li><a href="#" onclick="changeLanguage('en'); return false;">
+                        <img src="assets/images/flags/en.png" alt="English" class="language-flag">English
+                    </a></li>
+                    <li><a href="#" onclick="changeLanguage('pl'); return false;">
+                        <img src="assets/images/flags/pl.png" alt="Polski" class="language-flag">Polski
+                    </a></li>
+                </ul>
+            </li>
         </ul>
     </div>
 </nav>
