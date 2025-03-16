@@ -1349,7 +1349,7 @@ section {
         float: none;
         width: 100%;
         padding: 0;
-        margin-top: 2rem;
+        margin-top: 0rem;
     }
     
     .header-nav__list {
@@ -1525,6 +1525,33 @@ section {
     }
 }
 
+/* Poprawka dla przycisku menu na urządzeniach mobilnych */
+@media screen and (max-width: 768px) {
+    .header-menu-toggle {
+        display: block;
+        position: fixed; /* Zmiana z absolute na fixed */
+        top: 2rem;
+        right: 2rem;
+        width: 4rem;
+        height: 3rem;
+        cursor: pointer;
+        z-index: 1100; /* Wyższy z-index, aby przycisk był zawsze widoczny */
+    }
+    
+    /* Style dla kontenera nagłówka */
+    .s-header {
+        padding: 1.5rem 20px; /* Zmniejszenie paddingu z boków */
+    }
+}
+
+/* Dodatkowa poprawka dla bardzo małych ekranów */
+@media screen and (max-width: 400px) {
+    .header-menu-toggle {
+        right: 1rem; /* Zmniejszenie odległości od prawej krawędzi */
+        top: 1.5rem; /* Lekkie przesunięcie w górę */
+    }
+}
+
 /* ===================================================================
  * Animacje i efekty
  * ------------------------------------------------------------------- */
@@ -1584,4 +1611,47 @@ section {
     padding: 0.2rem 0.5rem;
     border-radius: 3px;
     font-family: monospace;
+}
+
+/* Poprawki dla menu językowego na urządzeniach mobilnych */
+@media screen and (max-width: 768px) {
+    /* Wyśrodkowanie elementu Language w menu mobilnym */
+    .language-dropdown {
+        text-align: center;
+        width: 100%;
+        margin-top: 1rem;
+    }
+    
+    #language-selector {
+        justify-content: center;
+        margin: 0 auto;
+    }
+    
+    /* Zmiana sposobu obsługi menu rozwijanego na urządzeniach dotykowych */
+    .language-menu {
+        position: relative !important;
+        top: auto !important;
+        right: auto !important;
+        left: auto !important;
+        width: 100% !important;
+        background-color: transparent !important;
+        box-shadow: none !important;
+        display: none;
+        padding: 0.5rem 0 !important;
+        margin: 0 auto;
+        max-width: 200px;
+    }
+    
+    .language-menu li a {
+        justify-content: center !important;
+        padding: 8px !important;
+        margin: 4px 0;
+        border-radius: 4px;
+        background-color: rgba(255, 255, 255, 0.1);
+    }
+    
+    /* Modyfikacja zachowania menu rozwijanego */
+    .language-dropdown.is-open .language-menu {
+        display: block;
+    }
 }

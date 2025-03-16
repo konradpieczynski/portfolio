@@ -48,16 +48,95 @@ function handleScrollToTopButton() {
 
 // Obsługa przełączania menu mobilnego
 function setupMobileMenu() {
-    const toggleButton = document.querySelector('.header-menu-toggle');
-    const navMenu = document.querySelector('.header-nav');
+    const menuToggle = document.querySelector('.header-menu-toggle');
+    const headerNav = document.querySelector('.header-nav');
+    const closeButton = document.querySelector('.header-nav__close');
+    const body = document.body;
     
-    if (toggleButton) {
-        toggleButton.addEventListener('click', function() {
-            this.classList.toggle('is-clicked');
-            navMenu.classList.toggle('menu-is-open');
+    if (!menuToggle || !headerNav || !closeButton) {
+        console.error("Elementy menu nie zostały znalezione!");
+        return;
+    }
+    
+    // Dodanie nasłuchiwania zdarzeń dla przycisku menu
+    menuToggle.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        // Przełączanie klas
+        menuToggle.classList.toggle('is-clicked');
+        headerNav.classList.toggle('menu-is-open');
+        body.classList.toggle('menu-is-open');
+        
+        console.log('Menu toggle clicked!', {
+            menuToggleClicked: menuToggle.classList.contains('is-clicked'),
+            menuIsOpen: headerNav.classList.contains('menu-is-open')
+        });
+    });
+    
+    // Dodanie nasłuchiwania zdarzeń dla przycisku zamknięcia
+    closeButton.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        // Usuwanie klas
+        menuToggle.classList.remove('is-clicked');
+        headerNav.classList.remove('menu-is-open');
+        body.classList.remove('menu-is-open');
+        
+        console.log('Close button clicked!');
+    });
+    
+    // Zamykanie menu po kliknięciu w link nawigacyjny
+    const navLinks = document.querySelectorAll('.header-nav__list a');
+    navLinks.forEach(link => {
+        link.addEventListener('click', function() {
+            menuToggle.classList.remove('is-clicked');
+            headerNav.classList.remove('menu-is-open');
+            body.classList.remove('menu-is-open');
+        });
+    });
+}
+
+// Obsługa menu rozwijanego języków na urządzeniach mobilnych
+function setupMobileLanguageMenu() {
+    const languageSelector = document.getElementById('language-selector');
+    const languageDropdown = document.querySelector('.language-dropdown');
+    
+    if (!languageSelector || !languageDropdown) return;
+    
+    // Wykrywanie czy urządzenie jest mobilne
+    const isMobile = window.matchMedia('(max-width: 768px)').matches;
+    
+    if (isMobile) {
+        // Usunięcie domyślnego zachowania
+        languageSelector.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            languageDropdown.classList.toggle('is-open');
+        });
+        
+        // Zamykanie menu po kliknięciu poza nim
+        document.addEventListener('click', function(e) {
+            if (!languageDropdown.contains(e.target)) {
+                languageDropdown.classList.remove('is-open');
+            }
+        });
+        
+        // Modyfikacja zachowania linków językowych
+        const languageLinks = document.querySelectorAll('.language-menu a');
+        languageLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.stopPropagation();
+                // Funkcja changeLanguage jest wywoływana przez onclick w HTML
+            });
         });
     }
 }
+
+// Upewnij się, że funkcja jest wywoływana po załadowaniu DOM
+document.addEventListener('DOMContentLoaded', function() {
+    setupMobileMenu();
+    setupMobileLanguageMenu();
+});
 
 // Uruchom funkcje po załadowaniu strony
 window.addEventListener('load', () => {
